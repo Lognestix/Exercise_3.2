@@ -30,141 +30,100 @@
 package ru.netology.domain;
 
 public class Post {
-    private String postId;                          //Идентификатор поста
-    private String avatarUrl;                       //Ссылка на аватар в заголовке
-    private String headline;                        //Текстовый заголовок
-    private long dateAndTimeOfPublication;          //Дата и время публикации
-    private boolean commandDropdownMenu;            //Активно ли выпадающее командное меню
-    private String[] textMessage;                   //Текстовая составляющая поста
-    private String imageOrVideoUrl;                 //Графическая составляющая поста
-    private String imageOrVideoDescription;         //Описание графической составляющей поста
-    private int amountOfVideoViews;                 //Количество просмотров видео в посте
-    private int amountOfPostLikes;                  //Количество "лайков" поста
-    private boolean postLike;                       //Поставлен ли лайк посту
-    private int amountOfPostComments;               //Количество коментариев к посту
-    private int amountOfPostReposts;                //Количество репостов поста
-    private int amountOfPostViews;                  //Количество просмотров
-    private boolean viewingAndWritingComments;      //Активны ли просмотр и написание коментариев
-    private CommentsInfo commentsInfo;              //Отображение комментариев, если активен просмотр
+    private int id;                                 //Идентификатор записи
+    private int ownerId;                            //Идентификатор владельца стены
+    private int fromId;                             //Идентификатор автора записи
+    private int createdBy;                          //Идентификатор администратора, опубликовавщего запись
+    private int date;                               //Дата и время публикации
+    private String text;                            //Текст поста
+    private int replyOwnerId;                       //Идентификатор автора записи на которую была оставлена текущая
+    private int replyPostId;                        //Идентификатор записи на которую была оставлена текущая
+    private int friendsOnly;                        //Информация о том что запись создана "Только для друзей"
+    private CommentsInfo commentsInfo;              //Информация о комментариях к записи
+    private LikesInfo likesInfo;                    //Информация о лайках к записи
+    private RepostsInfo repostsInfo;                //Информация о репостах записи
+    private ViewsInfo viewsInfo;                    //Информация о просмотрах записи
+    private String postType;                        //Тип записи
+    private Geo geo;                                //Информация о местоположении
+    private int signerId;                           //Идентификатор подписи автора записи, опубликованной от сообщества
+    private int canPin;                             //Может ли текущий пользователь закрепить запись
+    private int canDelete;                          //Может ли текущий пользователь удалить запись
+    private int canEdit;                            //Может ли текущий пользователь редактировать запись
+    private int isPinned;                           //Информация о том что запись закреплена
+    private int markedAsAds;                        //Содержит ли запись отметку "реклама"
+    private boolean isFavorite;                     //Добавлен ли объект в закладки текущего пользователя
+    private int postponedId;                        //Идентификатор отложенной записи
 
-    public String getPostId() {
-        return postId;
+    public int getId() {
+        return id;
     }
 
-    public void setPostId(String postId) {
-        this.postId = postId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getAvatarUrl() {
-        return avatarUrl;
+    public int getOwnerId() {
+        return ownerId;
     }
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+    public void setOwnerId(int ownerId) {
+        this.ownerId = ownerId;
     }
 
-    public String getHeadline() {
-        return headline;
+    public int getFromId() {
+        return fromId;
     }
 
-    public void setHeadline(String headline) {
-        this.headline = headline;
+    public void setFromId(int fromId) {
+        this.fromId = fromId;
     }
 
-    public long getDateAndTimeOfPublication() {
-        return dateAndTimeOfPublication;
+    public int getCreatedBy() {
+        return createdBy;
     }
 
-    public void setDateAndTimeOfPublication(long dateAndTimeOfPublication) {
-        this.dateAndTimeOfPublication = dateAndTimeOfPublication;
+    public void setCreatedBy(int createdBy) {
+        this.createdBy = createdBy;
     }
 
-    public boolean isCommandDropdownMenu() {
-        return commandDropdownMenu;
+    public int getDate() {
+        return date;
     }
 
-    public void setCommandDropdownMenu(boolean commandDropdownMenu) {
-        this.commandDropdownMenu = commandDropdownMenu;
+    public void setDate(int date) {
+        this.date = date;
     }
 
-    public String[] getTextMessage() {
-        return textMessage;
+    public String getText() {
+        return text;
     }
 
-    public void setTextMessage(String[] textMessage) {
-        this.textMessage = textMessage;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public String getImageOrVideoUrl() {
-        return imageOrVideoUrl;
+    public int getReplyOwnerId() {
+        return replyOwnerId;
     }
 
-    public void setImageOrVideoUrl(String imageOrVideoUrl) {
-        this.imageOrVideoUrl = imageOrVideoUrl;
+    public void setReplyOwnerId(int replyOwnerId) {
+        this.replyOwnerId = replyOwnerId;
     }
 
-    public String getImageOrVideoDescription() {
-        return imageOrVideoDescription;
+    public int getReplyPostId() {
+        return replyPostId;
     }
 
-    public void setImageOrVideoDescription(String imageOrVideoDescription) {
-        this.imageOrVideoDescription = imageOrVideoDescription;
+    public void setReplyPostId(int replyPostId) {
+        this.replyPostId = replyPostId;
     }
 
-    public int getAmountOfVideoViews() {
-        return amountOfVideoViews;
+    public int getFriendsOnly() {
+        return friendsOnly;
     }
 
-    public void setAmountOfVideoViews(int amountOfVideoViews) {
-        this.amountOfVideoViews = amountOfVideoViews;
-    }
-
-    public int getAmountOfPostLikes() {
-        return amountOfPostLikes;
-    }
-
-    public void setAmountOfPostLikes(int amountOfPostLikes) {
-        this.amountOfPostLikes = amountOfPostLikes;
-    }
-
-    public boolean isPostLike() {
-        return postLike;
-    }
-
-    public void setPostLike(boolean postLike) {
-        this.postLike = postLike;
-    }
-
-    public int getAmountOfPostComments() {
-        return amountOfPostComments;
-    }
-
-    public void setAmountOfPostComments(int amountOfPostComments) {
-        this.amountOfPostComments = amountOfPostComments;
-    }
-
-    public int getAmountOfPostReposts() {
-        return amountOfPostReposts;
-    }
-
-    public void setAmountOfPostReposts(int amountOfPostReposts) {
-        this.amountOfPostReposts = amountOfPostReposts;
-    }
-
-    public int getAmountOfPostViews() {
-        return amountOfPostViews;
-    }
-
-    public void setAmountOfPostViews(int amountOfPostViews) {
-        this.amountOfPostViews = amountOfPostViews;
-    }
-
-    public boolean isViewingAndWritingComments() {
-        return viewingAndWritingComments;
-    }
-
-    public void setViewingAndWritingComments(boolean viewingAndWritingComments) {
-        this.viewingAndWritingComments = viewingAndWritingComments;
+    public void setFriendsOnly(int friendsOnly) {
+        this.friendsOnly = friendsOnly;
     }
 
     public CommentsInfo getCommentsInfo() {
@@ -174,101 +133,274 @@ public class Post {
     public void setCommentsInfo(CommentsInfo commentsInfo) {
         this.commentsInfo = commentsInfo;
     }
+
+    public LikesInfo getLikesInfo() {
+        return likesInfo;
+    }
+
+    public void setLikesInfo(LikesInfo likesInfo) {
+        this.likesInfo = likesInfo;
+    }
+
+    public RepostsInfo getRepostsInfo() {
+        return repostsInfo;
+    }
+
+    public void setRepostsInfo(RepostsInfo repostsInfo) {
+        this.repostsInfo = repostsInfo;
+    }
+
+    public ViewsInfo getViewsInfo() {
+        return viewsInfo;
+    }
+
+    public void setViewsInfo(ViewsInfo viewsInfo) {
+        this.viewsInfo = viewsInfo;
+    }
+
+    public String getPostType() {
+        return postType;
+    }
+
+    public void setPostType(String postType) {
+        this.postType = postType;
+    }
+
+    public Geo getGeo() {
+        return geo;
+    }
+
+    public void setGeo(Geo geo) {
+        this.geo = geo;
+    }
+
+    public int getSignerId() {
+        return signerId;
+    }
+
+    public void setSignerId(int signerId) {
+        this.signerId = signerId;
+    }
+
+    public int getCanPin() {
+        return canPin;
+    }
+
+    public void setCanPin(int canPin) {
+        this.canPin = canPin;
+    }
+
+    public int getCanDelete() {
+        return canDelete;
+    }
+
+    public void setCanDelete(int canDelete) {
+        this.canDelete = canDelete;
+    }
+
+    public int getCanEdit() {
+        return canEdit;
+    }
+
+    public void setCanEdit(int canEdit) {
+        this.canEdit = canEdit;
+    }
+
+    public int getIsPinned() {
+        return isPinned;
+    }
+
+    public void setIsPinned(int isPinned) {
+        this.isPinned = isPinned;
+    }
+
+    public int getMarkedAsAds() {
+        return markedAsAds;
+    }
+
+    public void setMarkedAsAds(int markedAsAds) {
+        this.markedAsAds = markedAsAds;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
+
+    public int getPostponedId() {
+        return postponedId;
+    }
+
+    public void setPostponedId(int postponedId) {
+        this.postponedId = postponedId;
+    }
 }
 ```
 ```Java
 package ru.netology.domain;
 
 public class CommentsInfo {
-    private String postId;                      //Идентификатор поста к которому создан комментарий
-    private String activeTemplate;              //Активный шаблон отображения коментариев
-    private String commentId;                   //Идентификатор комментария
-    private String avatarUrl;                   //Ссылка на аватар в заголовке
-    private String nameAndSurnameOfTheAuthor;   //Имя и фамилия автора в заголовке
-    private String[] textMessage;               //Текст комментария
-    private long dateAndTimeOfPublication;      //Дата и время публикации
-    private int amountOfCommentLikes;           //Количество "лайков" комментария
-    private boolean commentLike;                //Поставлен ли лайк комментарию
-    private int amountOfCommentResponses;       //Количество ответных комментариев
+    private int count;                          //Количество комментариев
+    private int canPost;                        //Может ли текущий пользователь комментировать запись
+    private int groupsCanPost;                  //Могут ли сообщества комментировать запись
+    private boolean canClose;                   //Может ли текущий пользователь закрыть комментирование записи
+    private boolean canOpen;                    //Может ли текущий пользователь открыть комментирование записи
 
-    public String getPostId() {
-        return postId;
+    public int getCount() {
+        return count;
     }
 
-    public void setPostId(String postId) {
-        this.postId = postId;
+    public void setCount(int count) {
+        this.count = count;
     }
 
-    public String getActiveTemplate() {
-        return activeTemplate;
+    public int getCanPost() {
+        return canPost;
     }
 
-    public void setActiveTemplate(String activeTemplate) {
-        this.activeTemplate = activeTemplate;
+    public void setCanPost(int canPost) {
+        this.canPost = canPost;
     }
 
-    public String getCommentId() {
-        return commentId;
+    public int getGroupsCanPost() {
+        return groupsCanPost;
     }
 
-    public void setCommentId(String commentId) {
-        this.commentId = commentId;
+    public void setGroupsCanPost(int groupsCanPost) {
+        this.groupsCanPost = groupsCanPost;
     }
 
-    public String getAvatarUrl() {
-        return avatarUrl;
+    public boolean isCanClose() {
+        return canClose;
     }
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+    public void setCanClose(boolean canClose) {
+        this.canClose = canClose;
     }
 
-    public String getNameAndSurnameOfTheAuthor() {
-        return nameAndSurnameOfTheAuthor;
+    public boolean isCanOpen() {
+        return canOpen;
     }
 
-    public void setNameAndSurnameOfTheAuthor(String nameAndSurnameOfTheAuthor) {
-        this.nameAndSurnameOfTheAuthor = nameAndSurnameOfTheAuthor;
+    public void setCanOpen(boolean canOpen) {
+        this.canOpen = canOpen;
+    }
+}
+```
+```Java
+package ru.netology.domain;
+
+public class LikesInfo {
+    private int count;                      //Число пользователей, которым понравилась запись
+    private int userLikes;                  //Наличие отметки "Мне нравится" от текущего пользователя
+    private int canLike;                    //Может ли текущий пользователь поставить отметку "Мне нравится"
+    private int canPublish;                 //Может ли текущий пользователь сделать репост записи
+
+    public int getCount() {
+        return count;
     }
 
-    public String[] getTextMessage() {
-        return textMessage;
+    public void setCount(int count) {
+        this.count = count;
     }
 
-    public void setTextMessage(String[] textMessage) {
-        this.textMessage = textMessage;
+    public int getUserLikes() {
+        return userLikes;
     }
 
-    public long getDateAndTimeOfPublication() {
-        return dateAndTimeOfPublication;
+    public void setUserLikes(int userLikes) {
+        this.userLikes = userLikes;
     }
 
-    public void setDateAndTimeOfPublication(long dateAndTimeOfPublication) {
-        this.dateAndTimeOfPublication = dateAndTimeOfPublication;
+    public int getCanLike() {
+        return canLike;
     }
 
-    public int getAmountOfCommentLikes() {
-        return amountOfCommentLikes;
+    public void setCanLike(int canLike) {
+        this.canLike = canLike;
     }
 
-    public void setAmountOfCommentLikes(int amountOfCommentLikes) {
-        this.amountOfCommentLikes = amountOfCommentLikes;
+    public int getCanPublish() {
+        return canPublish;
     }
 
-    public boolean isCommentLike() {
-        return commentLike;
+    public void setCanPublish(int canPublish) {
+        this.canPublish = canPublish;
+    }
+}
+```
+```Java
+package ru.netology.domain;
+
+public class RepostsInfo {
+    private int count;                      //Число пользователей скопировавших запись
+    private int userReposted;               //Наличие репоста от текущего пользователя
+
+    public int getCount() {
+        return count;
     }
 
-    public void setCommentLike(boolean commentLike) {
-        this.commentLike = commentLike;
+    public void setCount(int count) {
+        this.count = count;
     }
 
-    public int getAmountOfCommentResponses() {
-        return amountOfCommentResponses;
+    public int getUserReposted() {
+        return userReposted;
     }
 
-    public void setAmountOfCommentResponses(int amountOfCommentResponses) {
-        this.amountOfCommentResponses = amountOfCommentResponses;
+    public void setUserReposted(int userReposted) {
+        this.userReposted = userReposted;
+    }
+}
+```
+```Java
+package ru.netology.domain;
+
+public class ViewsInfo {
+    private int count;                          //Число просмотров записи
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+}
+```
+```Java
+package ru.netology.domain;
+
+public class Geo {
+    private String type;                        //Тип места
+    private String coordinates;                 //Координаты места
+    private String place;                       //Описание места
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(String coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
     }
 }
 ```
